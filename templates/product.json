@@ -9,6 +9,38 @@
  */
 {
   "sections": {
+    "1764362973b1241747": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_f54aa29_4pgrE4": {
+          "type": "ai_gen_block_f54aa29",
+          "settings": {
+            "headline": "Cheaper Than Two Massages",
+            "description": "<p>Get professional-quality massage therapy at home for a fraction of the cost of regular clinic visits.</p>",
+            "left_image": "shopify://shop_images/left.webp",
+            "left_label": "Pay per visit £50.00",
+            "right_image": "shopify://shop_images/right.webp",
+            "right_label": "Pay once £79.90",
+            "show_play_button": true,
+            "play_icon_color": "#121212",
+            "banner_height": 500,
+            "headline_size": 48,
+            "description_size": 16,
+            "label_size": 13,
+            "background_color": "#ffffff",
+            "text_color": "#121212",
+            "label_bg_color": "#2f7a46",
+            "label_text_color": "#ffffff",
+            "divider_color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_f54aa29_4pgrE4"
+      ],
+      "settings": {}
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -121,12 +153,78 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "multirow_m98iLy": {
+      "type": "multirow",
+      "blocks": {
+        "row_bApG6p": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/doctortestj.webp",
+            "caption": "",
+            "heading": "",
+            "text": "<ul><li>10 minutes daily: noticeable relief within a week, easier neck movement, less next-day stiffness—no extra clinic visits.</li></ul><p></p><ul><li>Office workers rated it “as good as real hands,” citing lifelike pressure balance and fingertip-style nodes; many said the gentle heat boosted comfort.</li></ul><p></p><ul><li>Preferred SiaaSoo at home over regular spa bookings—one-button ease, consistent results, and time-and-money savings.<br/><br/><br/><br/><br/><br/></li></ul>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_bApG6p"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "17643627414b146e6c": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_f87a6ce_dtBnhp": {
+          "type": "ai_gen_block_f87a6ce",
+          "settings": {
+            "initial_position": 50,
+            "show_labels": true,
+            "before_label": "Before",
+            "after_label": "After",
+            "label_font_size": 14,
+            "label_bg_color": "#121212",
+            "label_text_color": "#ffffff",
+            "slider_color": "#ffffff",
+            "handle_size": 50,
+            "handle_icon_color": "#121212",
+            "max_width": 1200,
+            "aspect_ratio": 75,
+            "border_radius": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_f87a6ce_dtBnhp"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "main",
     "related-products",
     "1764347433791e4aee",
-    "custom_liquid_Ke3U7k"
+    "custom_liquid_Ke3U7k",
+    "1764362973b1241747",
+    "multirow_m98iLy",
+    "17643627414b146e6c"
   ]
 }
