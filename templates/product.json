@@ -9,75 +9,6 @@
  */
 {
   "sections": {
-    "1764366792dbb12fa6": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_58b3b0e_gtgwG3": {
-          "type": "ai_gen_block_58b3b0e",
-          "settings": {
-            "title": "FAQ",
-            "color_scheme": "scheme-1",
-            "container_width": 1200,
-            "padding_top": 60,
-            "padding_bottom": 60,
-            "columns_desktop": "2",
-            "item_spacing": 16,
-            "title_size": 36,
-            "title_spacing": 48,
-            "question_size": 17,
-            "answer_size": 15,
-            "item_background": "#ffffff",
-            "item_open_background": "#f8f9ff",
-            "answer_color": "#666666",
-            "question_open_color": "#334fb4",
-            "icon_size": 24,
-            "icon_color": "#334fb4",
-            "icon_open_color": "#1e3a8a",
-            "caret_color": "#999999",
-            "caret_open_color": "#334fb4",
-            "border_width": 0,
-            "border_radius": 12,
-            "border_color": "#e5e7eb",
-            "border_hover_color": "#cbd5e1",
-            "border_open_color": "#334fb4",
-            "shadow_horizontal": 0,
-            "shadow_vertical": 2,
-            "shadow_blur": 8,
-            "shadow_opacity": 0.1,
-            "item_padding": 24,
-            "question_1": "Tips for First-Time Users",
-            "answer_1": "<p>Most users won't need to take any special precautions during their first use. However, if you've never used red light therapy before and feel apprehensive, start by wearing a thin T-shirt as a barrier. This provides a psychological transition period. Once your body gradually adjusts to the temperature, you can remove the clothing for direct skin contact.</p>",
-            "question_2": "How long does it take to feel relief?",
-            "answer_2": "<p>Results vary from person to person. The vast majority of users experience significant relief within about a week. Some see remarkable results on the very first day, while others with severe muscle strain may require a longer period. Under normal circumstances, we recommend using it for 10-15 minutes per session to achieve relief.</p>",
-            "question_3": "How many modes are available?",
-            "answer_3": "<p>Two temperature settings are available. Three intensity modes are provided: Light, Normal, and Heavy. However, our proprietary chip automatically fine-tunes the pressure within each mode based on factors like your actual muscle thickness, intelligently adapting to deliver optimal pressure distribution.</p>",
-            "question_4": "Is red light therapy safe?",
-            "answer_4": "<p>It's completely safe. This is a standard therapeutic technique used by professional physical therapists, which we've simply integrated into our massager. The results are just as effective as clinical treatments. Our massage heads are made from skin-friendly, food-grade silicone, gentle on sensitive skin.</p>",
-            "question_5": "Is it rechargeable?",
-            "answer_5": "<p>The massager is rechargeable and takes approximately 3 hours to fully charge. With daily use of 10 minutes, it can last for 12 days.</p>",
-            "question_6": "Is it noisy?",
-            "answer_6": "<p>Featuring a pure copper brushless friction design, it showcases industry-leading circuit integration capabilities and space utilization, ensuring our mechanical structure operates at low volume and minimal noise. This guarantees a comfortable user experience without disturbing others.</p>",
-            "question_7": "Which body parts can it be used on?",
-            "answer_7": "<p>Primarily designed for the shoulders and neck, but we considered compatibility with other body parts from the outset. This drove us to develop adaptive pressure chips, enabling users to apply them to the back, waist, legs, arms, and buttocks.</p>",
-            "question_8": "Is it suitable for everyone?",
-            "answer_8": "<p>Yes, it is suitable for all individuals, including the elderly and children, though children require parental supervision. However, for those with skin conditions, prior muscle or bone surgeries, or other non-standard circumstances, use should be under medical supervision.</p>",
-            "question_9": "How should it be cleaned?",
-            "answer_9": "<p>Simply wipe the surface of the massager gently with a clean, damp cloth. We use antibacterial and stain-resistant materials, so users only need to ensure routine daily cleaning.</p>",
-            "question_10": "What is the return policy?",
-            "answer_10": "<p>We offer a 7-day no-questions-asked return and refund policy from the date you receive your package. We provide a two-year warranty from the date you receive your package. So don't hesitate—give it a try and don't miss out on a great product.</p>",
-            "question_11": "Do you ship worldwide?",
-            "answer_11": "<p>We ship to most countries worldwide. Standard shipping: 2-3 weeks for free. Faster shipping: 8-15 days costs £9.90. In the event of extreme weather or disruptions in your area, delivery may be delayed by a few days.</p>",
-            "question_12": "What's included in the package?",
-            "answer_12": "<p>Massager, adjustable strap, massage head gloves, charging cable, and illustrated manual.</p>"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_58b3b0e_gtgwG3"
-      ],
-      "settings": {}
-    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -279,6 +210,92 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "1764366792dbb12fa6": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_58b3b0e_gtgwG3": {
+          "type": "ai_gen_block_58b3b0e",
+          "settings": {
+            "title": "FAQ",
+            "color_scheme": "scheme-1",
+            "container_width": 1200,
+            "padding_top": 60,
+            "padding_bottom": 60,
+            "columns_desktop": "2",
+            "item_spacing": 16,
+            "title_size": 36,
+            "title_spacing": 48,
+            "question_size": 17,
+            "answer_size": 15,
+            "item_background": "#ffffff",
+            "item_open_background": "#f8f9ff",
+            "answer_color": "#666666",
+            "question_open_color": "#334fb4",
+            "icon_size": 24,
+            "icon_color": "#334fb4",
+            "icon_open_color": "#1e3a8a",
+            "caret_color": "#999999",
+            "caret_open_color": "#334fb4",
+            "border_width": 0,
+            "border_radius": 12,
+            "border_color": "#e5e7eb",
+            "border_hover_color": "#cbd5e1",
+            "border_open_color": "#334fb4",
+            "shadow_horizontal": 0,
+            "shadow_vertical": 2,
+            "shadow_blur": 8,
+            "shadow_opacity": 0.1,
+            "item_padding": 24,
+            "question_1": "Tips for First-Time Users",
+            "answer_1": "<p>Most users won't need to take any special precautions during their first use. However, if you've never used red light therapy before and feel apprehensive, start by wearing a thin T-shirt as a barrier. This provides a psychological transition period. Once your body gradually adjusts to the temperature, you can remove the clothing for direct skin contact.</p>",
+            "question_2": "How long does it take to feel relief?",
+            "answer_2": "<p>Results vary from person to person. The vast majority of users experience significant relief within about a week. Some see remarkable results on the very first day, while others with severe muscle strain may require a longer period. Under normal circumstances, we recommend using it for 10-15 minutes per session to achieve relief.</p>",
+            "question_3": "How many modes are available?",
+            "answer_3": "<p>Two temperature settings are available. Three intensity modes are provided: Light, Normal, and Heavy. However, our proprietary chip automatically fine-tunes the pressure within each mode based on factors like your actual muscle thickness, intelligently adapting to deliver optimal pressure distribution.</p>",
+            "question_4": "Is red light therapy safe?",
+            "answer_4": "<p>It's completely safe. This is a standard therapeutic technique used by professional physical therapists, which we've simply integrated into our massager. The results are just as effective as clinical treatments. Our massage heads are made from skin-friendly, food-grade silicone, gentle on sensitive skin.</p>",
+            "question_5": "Is it rechargeable?",
+            "answer_5": "<p>The massager is rechargeable and takes approximately 3 hours to fully charge. With daily use of 10 minutes, it can last for 12 days.</p>",
+            "question_6": "Is it noisy?",
+            "answer_6": "<p>Featuring a pure copper brushless friction design, it showcases industry-leading circuit integration capabilities and space utilization, ensuring our mechanical structure operates at low volume and minimal noise. This guarantees a comfortable user experience without disturbing others.</p>",
+            "question_7": "Which body parts can it be used on?",
+            "answer_7": "<p>Primarily designed for the shoulders and neck, but we considered compatibility with other body parts from the outset. This drove us to develop adaptive pressure chips, enabling users to apply them to the back, waist, legs, arms, and buttocks.</p>",
+            "question_8": "Is it suitable for everyone?",
+            "answer_8": "<p>Yes, it is suitable for all individuals, including the elderly and children, though children require parental supervision. However, for those with skin conditions, prior muscle or bone surgeries, or other non-standard circumstances, use should be under medical supervision.</p>",
+            "question_9": "How should it be cleaned?",
+            "answer_9": "<p>Simply wipe the surface of the massager gently with a clean, damp cloth. We use antibacterial and stain-resistant materials, so users only need to ensure routine daily cleaning.</p>",
+            "question_10": "What is the return policy?",
+            "answer_10": "<p>We offer a 7-day no-questions-asked return and refund policy from the date you receive your package. We provide a two-year warranty from the date you receive your package. So don't hesitate—give it a try and don't miss out on a great product.</p>",
+            "question_11": "Do you ship worldwide?",
+            "answer_11": "<p>We ship to most countries worldwide. Standard shipping: 2-3 weeks for free. Faster shipping: 8-15 days costs £9.90. In the event of extreme weather or disruptions in your area, delivery may be delayed by a few days.</p>",
+            "question_12": "What's included in the package?",
+            "answer_12": "<p>Massager, adjustable strap, massage head gloves, charging cable, and illustrated manual.</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_58b3b0e_gtgwG3"
+      ],
+      "settings": {}
+    },
+    "176436936601cd9be9": {
+      "type": "apps",
+      "blocks": {
+        "ali_reviews_widget_box_bLLW8x": {
+          "type": "shopify://apps/ali-reviews/blocks/widget-box/bf2eea72-0400-4db1-8908-44b7418f9a88",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "ali_reviews_widget_box_bLLW8x"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -291,6 +308,7 @@
     "176436574001866a04",
     "17643627414b146e6c",
     "custom_liquid_Qed3R9",
-    "1764366792dbb12fa6"
+    "1764366792dbb12fa6",
+    "176436936601cd9be9"
   ]
 }
