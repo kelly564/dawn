@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -6,9 +15,58 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "1764372971640e204b": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_f9d9f44_m3XMbq": {
+          "type": "ai_gen_block_f9d9f44",
+          "settings": {
+            "hero_title": "GlowFest — Professional Relief, At Home",
+            "hero_subtitle": "Inspired by clinic-grade therapy, designed for everyday life. GlowFest brings deep, therapist-like muscle relief with heat therapy and adaptive pressure.",
+            "hero_button_text": "Shop GlowFest",
+            "hero_button_link": "",
+            "hero_image_1": "shopify://shop_images/244d603bc873250d8b53105db7ffec95.jpg",
+            "hero_image_2": "shopify://shop_images/880bf551a9ae3b4ff642a4e4ded809ab.jpg",
+            "feature_1_icon": "shopify://shop_images/siaasooblack.jpg",
+            "feature_1_title": "Bionic Hand",
+            "feature_1_description": "Deep, realistic kneading inspired by expert therapists.",
+            "feature_2_icon": "shopify://shop_images/001.jpg",
+            "feature_2_title": "Proprietary Chip",
+            "feature_2_description": "Adaptive pressure and optimized performance.",
+            "feature_3_icon": "shopify://shop_images/62ec53f4689580925741742bc59d99eb.jpg",
+            "feature_3_title": "Red-Light Heat",
+            "feature_3_description": "Soothing warmth that boosts circulation.",
+            "story_image": "shopify://shop_images/6494a3b58f7bfcdcd6a720c088974e08.jpg",
+            "story_title": "Why GlowFest?",
+            "story_text": "GlowFest was created to bring professional-grade muscle therapy into your home. We believe everyone deserves access to effective pain relief and recovery tools.",
+            "story_bullet_1": "Clinic-grade technology for home use",
+            "story_bullet_2": "Designed by wellness experts",
+            "story_bullet_3": "Trusted by thousands of customers",
+            "story_bullet_4": "30-day satisfaction guarantee",
+            "background_color": "#ffffff",
+            "heading_color": "#121212",
+            "text_color": "#666666",
+            "accent_color": "#2f7a46",
+            "button_bg_color": "#2f7a46",
+            "button_hover_bg_color": "#256336",
+            "button_text_color": "#ffffff",
+            "feature_bg_color": "#f9f9f9",
+            "icon_bg_color": "#e8f5ec",
+            "section_padding_mobile": 40,
+            "section_padding_desktop": 80
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_f9d9f44_m3XMbq"
+      ],
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "1764372971640e204b"
   ]
 }
