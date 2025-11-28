@@ -1,6 +1,711 @@
+{% doc %}
+  @prompt
+    I want you to generate a complete Shopify section (Liquid + HTML + CSS) for my brand GlowFest.  
+    The section should be inspired by the design and layout style of siaasoo.uk — clean, modern, wellness-focused, premium aesthetics.
+    
+    SECTION CONTENT & STRUCTURE:
+    
+    1. HERO AREA
+    - Title: “GlowFest — Professional Relief, At Home”
+    - Subtitle: “Inspired by clinic-grade therapy, designed for everyday life. GlowFest brings deep, therapist-like muscle relief with heat therapy and adaptive pressure.”
+    - Button: “Shop GlowFest”
+    - Layout: text on the left, two vertical images on the right (image pickers in Shopify customizer)
+    
+    2. FEATURES (3 columns)
+    Each feature should include an icon (image picker), a title, and a short description:
+    - Feature 1: “Bionic Hand” — “Deep, realistic kneading inspired by expert therapists.”
+    - Feature 2: “Proprietary Chip” — “Adaptive pressure and optimized performance.”
+    - Feature 3: “Red-Light Heat” — “Soothing warmth that boosts circulation.”
+    
+    3. STORY SECTION
+    - Left side: 1 image (image picker)
+    - Right side: Title “Why GlowFest?”
+    - Paragraph text + bullet list
+    
+    DESIGN REQUIREMENTS:
+    - Clean, minimal, premium design similar to siaasoo.uk
+    - Colors: white background, soft neutrals, green accent #2f7a46
+    - Typography: modern sans-serif (Inter-style)
+    - Rounded corners, soft shadows, large spacing, wellness aesthetic
+    - Fully responsive (mobile-first)
+    - Two-column layouts must stack on mobile
+    - No JavaScript, HTML + CSS only
+    
+    TECHNICAL REQUIREMENTS:
+    - Must be a valid Shopify section (.liquid file)
+    - All images must be editable via the theme editor (schema → image_picker)
+    - All texts must be editable via the theme editor (schema → text or richtext settings)
+    - CSS must be included inside the section (no external files)
+    - Must include a proper schema JSON at the bottom
+    - Must be ready to paste into /sections/about-glowfest.liquid
+    
+    DELIVERABLE:
+    → Provide the **FULL Shopify section code** (Liquid + HTML + CSS + Schema).
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .glowfest-about-{{ ai_gen_id }} {
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.section_padding_mobile }}px 20px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .glowfest-about-{{ ai_gen_id }} {
+      padding: {{ block.settings.section_padding_desktop }}px 40px;
+    }
+  }
+
+  .glowfest-about-container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .glowfest-hero-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+
+  @media screen and (min-width: 990px) {
+    .glowfest-hero-{{ ai_gen_id }} {
+      flex-direction: row;
+      align-items: center;
+      gap: 60px;
+      margin-bottom: 120px;
+    }
+  }
+
+  .glowfest-hero-content-{{ ai_gen_id }} {
+    flex: 1;
+  }
+
+  .glowfest-hero-title-{{ ai_gen_id }} {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 20px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .glowfest-hero-title-{{ ai_gen_id }} {
+      font-size: 48px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .glowfest-hero-subtitle-{{ ai_gen_id }} {
+    font-size: 16px;
+    line-height: 1.6;
+    color: {{ block.settings.text_color }};
+    margin: 0 0 32px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .glowfest-hero-subtitle-{{ ai_gen_id }} {
+      font-size: 18px;
+    }
+  }
+
+  .glowfest-hero-button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 16px 40px;
+    background-color: {{ block.settings.button_bg_color }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .glowfest-hero-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_bg_color }};
+    transform: translateY(-2px);
+  }
+
+  .glowfest-hero-images-{{ ai_gen_id }} {
+    flex: 1;
+    display: flex;
+    gap: 16px;
+  }
+
+  .glowfest-hero-image-wrapper-{{ ai_gen_id }} {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #f4f4f4;
+  }
+
+  .glowfest-hero-image-wrapper-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .glowfest-hero-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+  }
+
+  .glowfest-hero-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .glowfest-features-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 80px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .glowfest-features-{{ ai_gen_id }} {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 120px;
+    }
+  }
+
+  .glowfest-feature-{{ ai_gen_id }} {
+    text-align: center;
+    padding: 32px 24px;
+    background-color: {{ block.settings.feature_bg_color }};
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .glowfest-feature-{{ ai_gen_id }}:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .glowfest-feature-icon-{{ ai_gen_id }} {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ block.settings.icon_bg_color }};
+  }
+
+  .glowfest-feature-icon-{{ ai_gen_id }} img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
+
+  .glowfest-feature-icon-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .glowfest-feature-icon-placeholder-{{ ai_gen_id }} svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .glowfest-feature-title-{{ ai_gen_id }} {
+    font-size: 20px;
+    font-weight: 600;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 12px;
+  }
+
+  .glowfest-feature-description-{{ ai_gen_id }} {
+    font-size: 15px;
+    line-height: 1.6;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+  }
+
+  .glowfest-story-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 990px) {
+    .glowfest-story-{{ ai_gen_id }} {
+      flex-direction: row;
+      gap: 60px;
+    }
+  }
+
+  .glowfest-story-image-{{ ai_gen_id }} {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #f4f4f4;
+  }
+
+  .glowfest-story-image-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .glowfest-story-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+  }
+
+  .glowfest-story-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .glowfest-story-content-{{ ai_gen_id }} {
+    flex: 1;
+  }
+
+  .glowfest-story-title-{{ ai_gen_id }} {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 24px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .glowfest-story-title-{{ ai_gen_id }} {
+      font-size: 40px;
+    }
+  }
+
+  .glowfest-story-text-{{ ai_gen_id }} {
+    font-size: 16px;
+    line-height: 1.7;
+    color: {{ block.settings.text_color }};
+    margin: 0 0 24px;
+  }
+
+  .glowfest-story-list-{{ ai_gen_id }} {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .glowfest-story-list-{{ ai_gen_id }} li {
+    font-size: 16px;
+    line-height: 1.7;
+    color: {{ block.settings.text_color }};
+    padding-left: 32px;
+    position: relative;
+    margin-bottom: 16px;
+  }
+
+  .glowfest-story-list-{{ ai_gen_id }} li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: {{ block.settings.accent_color }};
+    font-weight: 600;
+    font-size: 18px;
+  }
+{% endstyle %}
+
+<div class="glowfest-about-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="glowfest-about-container-{{ ai_gen_id }}">
+    <div class="glowfest-hero-{{ ai_gen_id }}">
+      <div class="glowfest-hero-content-{{ ai_gen_id }}">
+        <h1 class="glowfest-hero-title-{{ ai_gen_id }}">{{ block.settings.hero_title }}</h1>
+        <p class="glowfest-hero-subtitle-{{ ai_gen_id }}">{{ block.settings.hero_subtitle }}</p>
+        {% if block.settings.hero_button_link != blank %}
+          <a href="{{ block.settings.hero_button_link }}" class="glowfest-hero-button-{{ ai_gen_id }}">
+            {{ block.settings.hero_button_text }}
+          </a>
+        {% endif %}
+      </div>
+      <div class="glowfest-hero-images-{{ ai_gen_id }}">
+        <div class="glowfest-hero-image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.hero_image_1 %}
+            <img
+              src="{{ block.settings.hero_image_1 | image_url: width: 600 }}"
+              alt="{{ block.settings.hero_image_1.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.hero_image_1.width }}"
+              height="{{ block.settings.hero_image_1.height }}"
+            >
+          {% else %}
+            <div class="glowfest-hero-image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+        <div class="glowfest-hero-image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.hero_image_2 %}
+            <img
+              src="{{ block.settings.hero_image_2 | image_url: width: 600 }}"
+              alt="{{ block.settings.hero_image_2.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.hero_image_2.width }}"
+              height="{{ block.settings.hero_image_2.height }}"
+            >
+          {% else %}
+            <div class="glowfest-hero-image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="glowfest-features-{{ ai_gen_id }}">
+      <div class="glowfest-feature-{{ ai_gen_id }}">
+        <div class="glowfest-feature-icon-{{ ai_gen_id }}">
+          {% if block.settings.feature_1_icon %}
+            <img
+              src="{{ block.settings.feature_1_icon | image_url: width: 100 }}"
+              alt="{{ block.settings.feature_1_title | escape }}"
+              loading="lazy"
+            >
+          {% else %}
+            <div class="glowfest-feature-icon-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+        <h3 class="glowfest-feature-title-{{ ai_gen_id }}">{{ block.settings.feature_1_title }}</h3>
+        <p class="glowfest-feature-description-{{ ai_gen_id }}">{{ block.settings.feature_1_description }}</p>
+      </div>
+
+      <div class="glowfest-feature-{{ ai_gen_id }}">
+        <div class="glowfest-feature-icon-{{ ai_gen_id }}">
+          {% if block.settings.feature_2_icon %}
+            <img
+              src="{{ block.settings.feature_2_icon | image_url: width: 100 }}"
+              alt="{{ block.settings.feature_2_title | escape }}"
+              loading="lazy"
+            >
+          {% else %}
+            <div class="glowfest-feature-icon-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+        <h3 class="glowfest-feature-title-{{ ai_gen_id }}">{{ block.settings.feature_2_title }}</h3>
+        <p class="glowfest-feature-description-{{ ai_gen_id }}">{{ block.settings.feature_2_description }}</p>
+      </div>
+
+      <div class="glowfest-feature-{{ ai_gen_id }}">
+        <div class="glowfest-feature-icon-{{ ai_gen_id }}">
+          {% if block.settings.feature_3_icon %}
+            <img
+              src="{{ block.settings.feature_3_icon | image_url: width: 100 }}"
+              alt="{{ block.settings.feature_3_title | escape }}"
+              loading="lazy"
+            >
+          {% else %}
+            <div class="glowfest-feature-icon-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+        <h3 class="glowfest-feature-title-{{ ai_gen_id }}">{{ block.settings.feature_3_title }}</h3>
+        <p class="glowfest-feature-description-{{ ai_gen_id }}">{{ block.settings.feature_3_description }}</p>
+      </div>
+    </div>
+
+    <div class="glowfest-story-{{ ai_gen_id }}">
+      <div class="glowfest-story-image-{{ ai_gen_id }}">
+        {% if block.settings.story_image %}
+          <img
+            src="{{ block.settings.story_image | image_url: width: 800 }}"
+            alt="{{ block.settings.story_title | escape }}"
+            loading="lazy"
+            width="{{ block.settings.story_image.width }}"
+            height="{{ block.settings.story_image.height }}"
+          >
+        {% else %}
+          <div class="glowfest-story-image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="glowfest-story-content-{{ ai_gen_id }}">
+        <h2 class="glowfest-story-title-{{ ai_gen_id }}">{{ block.settings.story_title }}</h2>
+        <p class="glowfest-story-text-{{ ai_gen_id }}">{{ block.settings.story_text }}</p>
+        <ul class="glowfest-story-list-{{ ai_gen_id }}">
+          {% if block.settings.story_bullet_1 != blank %}
+            <li>{{ block.settings.story_bullet_1 }}</li>
+          {% endif %}
+          {% if block.settings.story_bullet_2 != blank %}
+            <li>{{ block.settings.story_bullet_2 }}</li>
+          {% endif %}
+          {% if block.settings.story_bullet_3 != blank %}
+            <li>{{ block.settings.story_bullet_3 }}</li>
+          {% endif %}
+          {% if block.settings.story_bullet_4 != blank %}
+            <li>{{ block.settings.story_bullet_4 }}</li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "GlowFest About",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero section"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Title",
+      "default": "GlowFest — Professional Relief, At Home"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subtitle",
+      "label": "Subtitle",
+      "default": "Inspired by clinic-grade therapy, designed for everyday life. GlowFest brings deep, therapist-like muscle relief with heat therapy and adaptive pressure."
+    },
+    {
+      "type": "text",
+      "id": "hero_button_text",
+      "label": "Button text",
+      "default": "Shop GlowFest"
+    },
+    {
+      "type": "url",
+      "id": "hero_button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_1",
+      "label": "Hero image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_2",
+      "label": "Hero image 2"
+    },
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_1_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_title",
+      "label": "Title",
+      "default": "Bionic Hand"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_1_description",
+      "label": "Description",
+      "default": "Deep, realistic kneading inspired by expert therapists."
+    },
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_2_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_title",
+      "label": "Title",
+      "default": "Proprietary Chip"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_2_description",
+      "label": "Description",
+      "default": "Adaptive pressure and optimized performance."
+    },
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_3_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_title",
+      "label": "Title",
+      "default": "Red-Light Heat"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_3_description",
+      "label": "Description",
+      "default": "Soothing warmth that boosts circulation."
+    },
+    {
+      "type": "header",
+      "content": "Story section"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "story_title",
+      "label": "Title",
+      "default": "Why GlowFest?"
+    },
+    {
+      "type": "textarea",
+      "id": "story_text",
+      "label": "Paragraph text",
+      "default": "GlowFest was created to bring professional-grade muscle therapy into your home. We believe everyone deserves access to effective pain relief and recovery tools."
+    },
+    {
+      "type": "text",
+      "id": "story_bullet_1",
+      "label": "Bullet point 1",
+      "default": "Clinic-grade technology for home use"
+    },
+    {
+      "type": "text",
+      "id": "story_bullet_2",
+      "label": "Bullet point 2",
+      "default": "Designed by wellness experts"
+    },
+    {
+      "type": "text",
+      "id": "story_bullet_3",
+      "label": "Bullet point 3",
+      "default": "Trusted by thousands of customers"
+    },
+    {
+      "type": "text",
+      "id": "story_bullet_4",
+      "label": "Bullet point 4",
+      "default": "30-day satisfaction guarantee"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Headings",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#2f7a46"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button background",
+      "default": "#2f7a46"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Button hover background",
+      "default": "#256336"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "feature_bg_color",
+      "label": "Feature card background",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg_color",
+      "label": "Icon background",
+      "default": "#e8f5ec"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_mobile",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_desktop",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop padding",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "GlowFest About"
+    }
+  ]
+}
 {% endschema %}
