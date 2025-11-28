@@ -1,6 +1,573 @@
+{% doc %}
+  @prompt
+    Photorealistic wide website banner, horizontal split-layout. Left side (≈55%): large white negative space with a centered-left headline in bold modern sans-serif reading “Cheaper Than Two Massages” and a short paragraph beneath in smaller weight. Right side (≈45%): a vertical split comparison photo — left half: professional seated chair massage (patient wearing light blue shirt) in a bright clinic; right half: a at-home massage/casual couch scene (patient wearing navy shirt) — each half topped with a small green ribbon label: left ribbon “Pay per visit £50.00”, right ribbon “Pay once £79.90”. Between halves a thin vertical white divider and a semi-transparent circular play/slider control overlay (white circle with triangle/play icon) centered on the split. Clean minimal UI, plenty of whitespace, modern typography (Inter/Poppins style), soft natural window lighting, shallow depth of field, high resolution, subtle shadows, muted neutral palette with green accents (#2f7a46). Composition: left text block aligned vertically center, right imagery detailed and realistic. Feel: professional, trustworthy, elegant marketing hero image. —ar 16:5 —v 5 —q 2 An interactive before/after image slider. It should show 2 images overlapped that can be compared by dragging the slider.
+    
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-comparison-slider-{{ ai_gen_id }} {
+    width: 100%;
+    max-width: 100%;
+    background-color: {{ block.settings.background_color }};
+    overflow: hidden;
+  }
+
+  .ai-comparison-slider__container-{{ ai_gen_id }} {
+    display: flex;
+    align-items: stretch;
+    min-height: 400px;
+  }
+
+  .ai-comparison-slider__text-section-{{ ai_gen_id }} {
+    flex: 0 0 {{ block.settings.text_width }}%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    background-color: {{ block.settings.text_bg_color }};
+  }
+
+  .ai-comparison-slider__text-content-{{ ai_gen_id }} {
+    max-width: 500px;
+  }
+
+  .ai-comparison-slider__headline-{{ ai_gen_id }} {
+    font-size: {{ block.settings.headline_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.headline_color }};
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+  }
+
+  .ai-comparison-slider__description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    color: {{ block.settings.description_color }};
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ai-comparison-slider__image-section-{{ ai_gen_id }} {
+    flex: 0 0 {{ 100 | minus: block.settings.text_width }}%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-comparison-slider__wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  .ai-comparison-slider__image-container-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-comparison-slider__image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-comparison-slider__image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-comparison-slider__image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .ai-comparison-slider__empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-comparison-slider__before-{{ ai_gen_id }} {
+    z-index: 1;
+  }
+
+  .ai-comparison-slider__after-{{ ai_gen_id }} {
+    z-index: 2;
+    clip-path: inset(0 0 0 50%);
+  }
+
+  .ai-comparison-slider__label-{{ ai_gen_id }} {
+    position: absolute;
+    top: 20px;
+    padding: 8px 16px;
+    background-color: {{ block.settings.label_bg_color }};
+    color: {{ block.settings.label_text_color }};
+    font-size: {{ block.settings.label_size }}px;
+    font-weight: 600;
+    z-index: 3;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .ai-comparison-slider__label--before-{{ ai_gen_id }} {
+    left: 20px;
+  }
+
+  .ai-comparison-slider__label--after-{{ ai_gen_id }} {
+    right: 20px;
+  }
+
+  .ai-comparison-slider__divider-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: {{ block.settings.divider_width }}px;
+    height: 100%;
+    background-color: {{ block.settings.divider_color }};
+    transform: translateX(-50%);
+    z-index: 4;
+    cursor: ew-resize;
+  }
+
+  .ai-comparison-slider__handle-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: {{ block.settings.handle_size }}px;
+    height: {{ block.settings.handle_size }}px;
+    background-color: {{ block.settings.handle_bg_color }};
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: ew-resize;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+
+  .ai-comparison-slider__handle-icon-{{ ai_gen_id }} {
+    width: calc({{ block.settings.handle_size }}px * 0.5);
+    height: calc({{ block.settings.handle_size }}px * 0.5);
+    color: {{ block.settings.handle_icon_color }};
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-comparison-slider__container-{{ ai_gen_id }} {
+      flex-direction: column;
+    }
+
+    .ai-comparison-slider__text-section-{{ ai_gen_id }},
+    .ai-comparison-slider__image-section-{{ ai_gen_id }} {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+
+    .ai-comparison-slider__text-section-{{ ai_gen_id }} {
+      padding: 40px 30px;
+    }
+
+    .ai-comparison-slider__image-section-{{ ai_gen_id }} {
+      min-height: 400px;
+    }
+
+    .ai-comparison-slider__headline-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.headline_size }}px * 0.8);
+    }
+
+    .ai-comparison-slider__description-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.description_size }}px * 0.9);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-comparison-slider__text-section-{{ ai_gen_id }} {
+      padding: 30px 20px;
+    }
+
+    .ai-comparison-slider__headline-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.headline_size }}px * 0.7);
+    }
+
+    .ai-comparison-slider__label-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.label_size }}px * 0.85);
+      padding: 6px 12px;
+    }
+
+    .ai-comparison-slider__handle-{{ ai_gen_id }} {
+      width: calc({{ block.settings.handle_size }}px * 0.8);
+      height: calc({{ block.settings.handle_size }}px * 0.8);
+    }
+  }
+{% endstyle %}
+
+<before-after-slider-{{ ai_gen_id }} class="ai-comparison-slider-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-comparison-slider__container-{{ ai_gen_id }}">
+    <div class="ai-comparison-slider__text-section-{{ ai_gen_id }}">
+      <div class="ai-comparison-slider__text-content-{{ ai_gen_id }}">
+        {% if block.settings.headline != blank %}
+          <h2 class="ai-comparison-slider__headline-{{ ai_gen_id }}">{{ block.settings.headline }}</h2>
+        {% endif %}
+        {% if block.settings.description != blank %}
+          <div class="ai-comparison-slider__description-{{ ai_gen_id }}">{{ block.settings.description }}</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="ai-comparison-slider__image-section-{{ ai_gen_id }}">
+      <div class="ai-comparison-slider__wrapper-{{ ai_gen_id }}">
+        <div class="ai-comparison-slider__image-container-{{ ai_gen_id }} ai-comparison-slider__before-{{ ai_gen_id }}">
+          {% if block.settings.before_image %}
+            <img
+              src="{{ block.settings.before_image | image_url: width: 1200 }}"
+              alt="{{ block.settings.before_label | escape }}"
+              loading="lazy"
+              width="{{ block.settings.before_image.width }}"
+              height="{{ block.settings.before_image.height }}"
+              class="ai-comparison-slider__image-{{ ai_gen_id }}"
+            >
+          {% else %}
+            <div class="ai-comparison-slider__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+              <div class="ai-comparison-slider__empty-state-{{ ai_gen_id }}">
+                Add a "before" image
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-comparison-slider__image-container-{{ ai_gen_id }} ai-comparison-slider__after-{{ ai_gen_id }}">
+          {% if block.settings.after_image %}
+            <img
+              src="{{ block.settings.after_image | image_url: width: 1200 }}"
+              alt="{{ block.settings.after_label | escape }}"
+              loading="lazy"
+              width="{{ block.settings.after_image.width }}"
+              height="{{ block.settings.after_image.height }}"
+              class="ai-comparison-slider__image-{{ ai_gen_id }}"
+            >
+          {% else %}
+            <div class="ai-comparison-slider__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+              <div class="ai-comparison-slider__empty-state-{{ ai_gen_id }}">
+                Add an "after" image
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+        {% if block.settings.before_label != blank %}
+          <div class="ai-comparison-slider__label-{{ ai_gen_id }} ai-comparison-slider__label--before-{{ ai_gen_id }}">
+            {{ block.settings.before_label }}
+          </div>
+        {% endif %}
+
+        {% if block.settings.after_label != blank %}
+          <div class="ai-comparison-slider__label-{{ ai_gen_id }} ai-comparison-slider__label--after-{{ ai_gen_id }}">
+            {{ block.settings.after_label }}
+          </div>
+        {% endif %}
+
+        <div class="ai-comparison-slider__divider-{{ ai_gen_id }}">
+          <div class="ai-comparison-slider__handle-{{ ai_gen_id }}">
+            <svg
+              class="ai-comparison-slider__handle-icon-{{ ai_gen_id }}"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6"></polyline>
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</before-after-slider-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class BeforeAfterSlider{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.isDragging = false;
+        this.sliderPosition = 50;
+      }
+
+      connectedCallback() {
+        this.wrapper = this.querySelector('.ai-comparison-slider__wrapper-{{ ai_gen_id }}');
+        this.afterImage = this.querySelector('.ai-comparison-slider__after-{{ ai_gen_id }}');
+        this.divider = this.querySelector('.ai-comparison-slider__divider-{{ ai_gen_id }}');
+        this.handle = this.querySelector('.ai-comparison-slider__handle-{{ ai_gen_id }}');
+
+        if (!this.wrapper || !this.afterImage || !this.divider) return;
+
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.handle.addEventListener('mousedown', this.startDragging.bind(this));
+        this.handle.addEventListener('touchstart', this.startDragging.bind(this), { passive: true });
+        
+        this.wrapper.addEventListener('click', this.handleClick.bind(this));
+
+        document.addEventListener('mousemove', this.onDrag.bind(this));
+        document.addEventListener('touchmove', this.onDrag.bind(this), { passive: false });
+
+        document.addEventListener('mouseup', this.stopDragging.bind(this));
+        document.addEventListener('touchend', this.stopDragging.bind(this));
+      }
+
+      startDragging(e) {
+        this.isDragging = true;
+        e.preventDefault();
+      }
+
+      stopDragging() {
+        this.isDragging = false;
+      }
+
+      handleClick(e) {
+        if (e.target === this.handle || this.handle.contains(e.target)) return;
+        
+        const rect = this.wrapper.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const percentage = (x / rect.width) * 100;
+        
+        this.updateSlider(percentage);
+      }
+
+      onDrag(e) {
+        if (!this.isDragging) return;
+
+        e.preventDefault();
+
+        const rect = this.wrapper.getBoundingClientRect();
+        let x;
+
+        if (e.type === 'touchmove') {
+          x = e.touches[0].clientX - rect.left;
+        } else {
+          x = e.clientX - rect.left;
+        }
+
+        const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+        this.updateSlider(percentage);
+      }
+
+      updateSlider(percentage) {
+        this.sliderPosition = percentage;
+        this.afterImage.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+        this.divider.style.left = `${percentage}%`;
+      }
+    }
+
+    customElements.define('before-after-slider-{{ ai_gen_id }}', BeforeAfterSlider{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Before/after slider",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text section"
+    },
+    {
+      "type": "richtext",
+      "id": "headline",
+      "label": "Headline",
+      "default": "<p>Cheaper Than Two Massages</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Experience professional-quality massage therapy at home. Our device delivers the same relief as clinic visits, but at a fraction of the cost.</p>"
+    },
+    {
+      "type": "range",
+      "id": "text_width",
+      "min": 30,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "label": "Text section width",
+      "default": 55
+    },
+    {
+      "type": "color",
+      "id": "text_bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "headline_color",
+      "label": "Headline color",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "headline_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Headline size",
+      "default": 42
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Description size",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before image"
+    },
+    {
+      "type": "text",
+      "id": "before_label",
+      "label": "Before label",
+      "default": "Pay per visit £50.00"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After image"
+    },
+    {
+      "type": "text",
+      "id": "after_label",
+      "label": "After label",
+      "default": "Pay once £79.90"
+    },
+    {
+      "type": "header",
+      "content": "Labels"
+    },
+    {
+      "type": "color",
+      "id": "label_bg_color",
+      "label": "Background color",
+      "default": "#2f7a46"
+    },
+    {
+      "type": "color",
+      "id": "label_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Label size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Slider controls"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "divider_width",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "unit": "px",
+      "label": "Divider width",
+      "default": 3
+    },
+    {
+      "type": "color",
+      "id": "handle_bg_color",
+      "label": "Handle background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "handle_icon_color",
+      "label": "Handle icon color",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "handle_size",
+      "min": 30,
+      "max": 70,
+      "step": 5,
+      "unit": "px",
+      "label": "Handle size",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f3f3f3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Before/after slider"
+    }
+  ]
+}
 {% endschema %}
