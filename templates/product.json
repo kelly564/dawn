@@ -9,35 +9,72 @@
  */
 {
   "sections": {
-    "1764362973b1241747": {
+    "1764366792dbb12fa6": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_f54aa29_4pgrE4": {
-          "type": "ai_gen_block_f54aa29",
+        "ai_gen_block_58b3b0e_gtgwG3": {
+          "type": "ai_gen_block_58b3b0e",
           "settings": {
-            "headline": "Cheaper Than Two Massages",
-            "description": "<p>Get professional-quality massage therapy at home for a fraction of the cost of regular clinic visits.</p>",
-            "left_image": "shopify://shop_images/left.webp",
-            "left_label": "Pay per visit £50.00",
-            "right_image": "shopify://shop_images/right.webp",
-            "right_label": "Pay once £79.90",
-            "show_play_button": true,
-            "play_icon_color": "#121212",
-            "banner_height": 500,
-            "headline_size": 48,
-            "description_size": 16,
-            "label_size": 13,
-            "background_color": "#ffffff",
-            "text_color": "#121212",
-            "label_bg_color": "#2f7a46",
-            "label_text_color": "#ffffff",
-            "divider_color": "#ffffff"
+            "title": "FAQ",
+            "color_scheme": "scheme-1",
+            "container_width": 1200,
+            "padding_top": 60,
+            "padding_bottom": 60,
+            "columns_desktop": "2",
+            "item_spacing": 16,
+            "title_size": 36,
+            "title_spacing": 48,
+            "question_size": 17,
+            "answer_size": 15,
+            "item_background": "#ffffff",
+            "item_open_background": "#f8f9ff",
+            "answer_color": "#666666",
+            "question_open_color": "#334fb4",
+            "icon_size": 24,
+            "icon_color": "#334fb4",
+            "icon_open_color": "#1e3a8a",
+            "caret_color": "#999999",
+            "caret_open_color": "#334fb4",
+            "border_width": 0,
+            "border_radius": 12,
+            "border_color": "#e5e7eb",
+            "border_hover_color": "#cbd5e1",
+            "border_open_color": "#334fb4",
+            "shadow_horizontal": 0,
+            "shadow_vertical": 2,
+            "shadow_blur": 8,
+            "shadow_opacity": 0.1,
+            "item_padding": 24,
+            "question_1": "Tips for First-Time Users",
+            "answer_1": "<p>Most users won't need to take any special precautions during their first use. However, if you've never used red light therapy before and feel apprehensive, start by wearing a thin T-shirt as a barrier. This provides a psychological transition period. Once your body gradually adjusts to the temperature, you can remove the clothing for direct skin contact.</p>",
+            "question_2": "How long does it take to feel relief?",
+            "answer_2": "<p>Results vary from person to person. The vast majority of users experience significant relief within about a week. Some see remarkable results on the very first day, while others with severe muscle strain may require a longer period. Under normal circumstances, we recommend using it for 10-15 minutes per session to achieve relief.</p>",
+            "question_3": "How many modes are available?",
+            "answer_3": "<p>Two temperature settings are available. Three intensity modes are provided: Light, Normal, and Heavy. However, our proprietary chip automatically fine-tunes the pressure within each mode based on factors like your actual muscle thickness, intelligently adapting to deliver optimal pressure distribution.</p>",
+            "question_4": "Is red light therapy safe?",
+            "answer_4": "<p>It's completely safe. This is a standard therapeutic technique used by professional physical therapists, which we've simply integrated into our massager. The results are just as effective as clinical treatments. Our massage heads are made from skin-friendly, food-grade silicone, gentle on sensitive skin.</p>",
+            "question_5": "Is it rechargeable?",
+            "answer_5": "<p>The massager is rechargeable and takes approximately 3 hours to fully charge. With daily use of 10 minutes, it can last for 12 days.</p>",
+            "question_6": "Is it noisy?",
+            "answer_6": "<p>Featuring a pure copper brushless friction design, it showcases industry-leading circuit integration capabilities and space utilization, ensuring our mechanical structure operates at low volume and minimal noise. This guarantees a comfortable user experience without disturbing others.</p>",
+            "question_7": "Which body parts can it be used on?",
+            "answer_7": "<p>Primarily designed for the shoulders and neck, but we considered compatibility with other body parts from the outset. This drove us to develop adaptive pressure chips, enabling users to apply them to the back, waist, legs, arms, and buttocks.</p>",
+            "question_8": "Is it suitable for everyone?",
+            "answer_8": "<p>Yes, it is suitable for all individuals, including the elderly and children, though children require parental supervision. However, for those with skin conditions, prior muscle or bone surgeries, or other non-standard circumstances, use should be under medical supervision.</p>",
+            "question_9": "How should it be cleaned?",
+            "answer_9": "<p>Simply wipe the surface of the massager gently with a clean, damp cloth. We use antibacterial and stain-resistant materials, so users only need to ensure routine daily cleaning.</p>",
+            "question_10": "What is the return policy?",
+            "answer_10": "<p>We offer a 7-day no-questions-asked return and refund policy from the date you receive your package. We provide a two-year warranty from the date you receive your package. So don't hesitate—give it a try and don't miss out on a great product.</p>",
+            "question_11": "Do you ship worldwide?",
+            "answer_11": "<p>We ship to most countries worldwide. Standard shipping: 2-3 weeks for free. Faster shipping: 8-15 days costs £9.90. In the event of extreme weather or disruptions in your area, delivery may be delayed by a few days.</p>",
+            "question_12": "What's included in the package?",
+            "answer_12": "<p>Massager, adjustable strap, massage head gloves, charging cable, and illustrated manual.</p>"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_f54aa29_4pgrE4"
+        "ai_gen_block_58b3b0e_gtgwG3"
       ],
       "settings": {}
     },
@@ -154,6 +191,10 @@
         "padding_bottom": 52
       }
     },
+    "1764362973b1241747": {
+      "type": "_blocks",
+      "settings": {}
+    },
     "multirow_m98iLy": {
       "type": "multirow",
       "blocks": {
@@ -189,33 +230,55 @@
         "padding_bottom": 36
       }
     },
-    "17643627414b146e6c": {
+    "176436574001866a04": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_f87a6ce_dtBnhp": {
-          "type": "ai_gen_block_f87a6ce",
+        "ai_gen_block_8a495b3_XCA8WH": {
+          "type": "ai_gen_block_8a495b3",
           "settings": {
-            "initial_position": 50,
-            "show_labels": true,
-            "before_label": "Before",
-            "after_label": "After",
-            "label_font_size": 14,
-            "label_bg_color": "#121212",
+            "headline": "<p>Cheaper Than Two Massages</p>",
+            "description": "<p>Experience professional-quality massage therapy at home. Our device delivers the same relief as clinic visits, but at a fraction of the cost.</p>",
+            "text_width": 55,
+            "text_bg_color": "#ffffff",
+            "headline_color": "#121212",
+            "headline_size": 42,
+            "description_color": "#666666",
+            "description_size": 16,
+            "before_image": "shopify://shop_images/left.webp",
+            "before_label": "Pay per visit $70.00",
+            "after_image": "shopify://shop_images/right.webp",
+            "after_label": "Pay once £79.99",
+            "label_bg_color": "#2f7a46",
             "label_text_color": "#ffffff",
-            "slider_color": "#ffffff",
-            "handle_size": 50,
+            "label_size": 14,
+            "divider_color": "#ffffff",
+            "divider_width": 3,
+            "handle_bg_color": "#ffffff",
             "handle_icon_color": "#121212",
-            "max_width": 1200,
-            "aspect_ratio": 75,
-            "border_radius": 0
+            "handle_size": 50,
+            "background_color": "#f3f3f3"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_f87a6ce_dtBnhp"
+        "ai_gen_block_8a495b3_XCA8WH"
       ],
       "settings": {}
+    },
+    "17643627414b146e6c": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "custom_liquid_Qed3R9": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -225,6 +288,9 @@
     "custom_liquid_Ke3U7k",
     "1764362973b1241747",
     "multirow_m98iLy",
-    "17643627414b146e6c"
+    "176436574001866a04",
+    "17643627414b146e6c",
+    "custom_liquid_Qed3R9",
+    "1764366792dbb12fa6"
   ]
 }
