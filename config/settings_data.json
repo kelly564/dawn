@@ -140,6 +140,11 @@
         "type": "shopify://apps/essential-estimated/blocks/app-embed/02a895dd-b5b5-4103-8966-c6914aa8309e",
         "disabled": false,
         "settings": {}
+      },
+      "14826766009936288847": {
+        "type": "shopify://apps/discounty/blocks/sdk/d65eb522-0d94-499f-9831-d4b3301f5340",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
