@@ -145,6 +145,11 @@
         "type": "shopify://apps/discounty/blocks/sdk/d65eb522-0d94-499f-9831-d4b3301f5340",
         "disabled": false,
         "settings": {}
+      },
+      "8924079168617604943": {
+        "type": "shopify://apps/ali-reviews/blocks/widget-popup/bf2eea72-0400-4db1-8908-44b7418f9a88",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
