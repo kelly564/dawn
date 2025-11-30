@@ -9,7 +9,9 @@
  */
 {
   "current": {
-    "logo_width": 90,
+    "logo": "shopify://shop_images/Bold_Minimalist_GlowFest_Logo_with_Line_Detail_20251129_224018_0000.png",
+    "logo_width": 100,
+    "favicon": "shopify://shop_images/Bold_Minimalist_GlowFest_Logo_with_Line_Detail_20251129_224018_0000.png",
     "type_header_font": "assistant_n4",
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
@@ -39,14 +41,14 @@
     "inputs_shadow_horizontal_offset": 0,
     "inputs_shadow_vertical_offset": 4,
     "inputs_shadow_blur": 5,
-    "card_style": "standard",
+    "card_style": "card",
     "card_image_padding": 0,
     "card_text_alignment": "left",
     "card_color_scheme": "scheme-2",
     "card_border_thickness": 0,
     "card_border_opacity": 10,
     "card_corner_radius": 0,
-    "card_shadow_opacity": 0,
+    "card_shadow_opacity": 10,
     "card_shadow_horizontal_offset": 0,
     "card_shadow_vertical_offset": 4,
     "card_shadow_blur": 5,
